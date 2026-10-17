@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Video antiácaros UV</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;background:#000;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  #stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .phone{position:relative;width:100vw;height:100vh;max-width:calc(100vh*9/16);max-height:calc(100vw*16/9);
+    aspect-ratio:9/16;background:#120a1c;overflow:hidden;color:#fff}
+  .scene{position:absolute;inset:0;opacity:0;transition:opacity .5s;display:flex;align-items:center;justify-content:center;text-align:center;padding:8%}
+  .scene.on{opacity:1}
+  .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.55) saturate(1.1);transform:scale(1.08);animation:zoom 7s ease-in-out infinite alternate}
+  @keyframes zoom{to{transform:scale(1.16)}}
+  .grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,5,20,.45),rgba(10,5,20,.8) 70%)}
+  .txt{position:relative;z-index:2;font-weight:900;font-size:clamp(24px,7vw,54px);line-height:1.15;text-shadow:0 3px 14px rgba(0,0,0,.6)}
+  .txt small{display:block;font-size:.5em;font-weight:700;margin-top:14px;opacity:.92}
+  .pill{display:inline-block;background:#25D366;color:#04311a;font-weight:900;border-radius:999px;padding:.4em .8em;margin-top:18px;font-size:.55em}
+  .pill.purple{background:#9b4fd1;color:#fff}
+  #bar{position:absolute;top:0;left:0;height:5px;background:#25D366;width:0;z-index:5}
+  .tap{position:absolute;bottom:3%;left:0;right:0;text-align:center;font-size:13px;opacity:.55;z-index:5}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="phone">
+    <div id="bar"></div>
+    <div class="scene on" data-bg="https://d39ru7awumhhs2.cloudfront.net/chile/products/49822/1738705588Captura%20de%20pantalla%202025-02-04%20135920.png">
+      <div class="bg"></div><div class="grad"></div>
+      <div class="txt">Tu colchón junta ácaros…<small>y no se ven. Pasas 8 horas ahí cada noche.</small></div>
+    </div>
+    <div class="scene">
+      <div class="grad"></div>
+      <div class="txt">Sacudir la cama <span style="color:#ff6b6b">no basta</span>.<small>La aspiradora normal tampoco llega al fondo.</small></div>
+    </div>
+    <div class="scene" data-bg="https://d39ru7awumhhs2.cloudfront.net/chile/products/49822/1738705588Captura%20de%20pantalla%202025-02-04%20135920.png">
+      <div class="bg"></div><div class="grad"></div>
+      <div class="txt">Aspiradora antiácaros <span style="color:#c88bff">+ luz UV</span><small>Aspira y pasa luz UV sobre colchón y sofá.</small></div>
+    </div>
+    <div class="scene">
+      <div class="grad"></div>
+      <div class="txt">Sirve en <span style="color:#7ee0a3">cama, sofá y alfombra</span><small>Ideal si tienes niños, mascotas o alergias.</small></div>
+    </div>
+    <div class="scene">
+      <div class="grad"></div>
+      <div class="txt">$25.990<small>Envío gratis a todo Chile<br>Pagas al recibir en tu casa</small><span class="pill">🚚 Envío GRATIS 💵 Pago al recibir</span></div>
+    </div>
+    <div class="scene" data-bg="https://d39ru7awumhhs2.cloudfront.net/chile/products/49822/1738705588Captura%20de%20pantalla%202025-02-04%20135920.png">
+      <div class="bg"></div><div class="grad"></div>
+      <div class="txt">Pídela hoy<small>Link en la bio 👉</small><span class="pill purple">juanpablofuentealba.github.io/antiacaros-uv</span></div>
+    </div>
+    <div class="tap">🎥 Graba la pantalla en vertical (9:16)</div>
+  </div>
+</div>
+<script>
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  // preparar fondos
+  scenes.forEach(function(s){
+    var url = s.getAttribute('data-bg');
+    if (url) { var bg = s.querySelector('.bg'); if (bg) bg.style.backgroundImage = "url('" + url + "')"; }
+  });
+  var bar = document.getElementById('bar');
+  var DUR = 2800, i = 0, start = Date.now();
+  function show(n){
+    scenes.forEach(function(s,k){ s.classList.toggle('on', k===n); });
+    bar.style.transition='none'; bar.style.width='0';
+    void bar.offsetWidth;
+    bar.style.transition='width ' + DUR + 'ms linear'; bar.style.width='100%';
+    start = Date.now();
+  }
+  show(0);
+  setInterval(function(){
+    var t = Date.now() - start;
+    if (t >= DUR){ i = (i+1) % scenes.length; show(i); }
+  }, 100);
+</script>
+</body>
+</html>
