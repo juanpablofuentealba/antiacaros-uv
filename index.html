@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aspiradora Antiácaros UV — Envío gratis a todo Chile</title>
+<meta name="description" content="Aspiradora antiácaros UV para colchón y sofá. Envío gratis a todo Chile, pagas al recibir en tu casa.">
+<style>
+  :root{--brand:#6a2c91;--brand2:#9b4fd1;--ok:#0f9d58;--bg:#f6f4fb;--txt:#1c1a22}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--txt);background:var(--bg);line-height:1.5}
+  .bar{background:var(--brand);color:#fff;text-align:center;padding:10px;font-weight:600;font-size:14px;position:sticky;top:0;z-index:10}
+  .wrap{max-width:560px;margin:0 auto;padding:16px}
+  .card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,.08);margin-bottom:16px}
+  img{width:100%;border-radius:12px;display:block}
+  h1{font-size:22px;margin:14px 0 6px}
+  .price{font-size:30px;font-weight:800;color:var(--brand);margin:4px 0}
+  .sub{color:#5c5866;font-size:14px}
+  ul{padding-left:20px;margin:10px 0}
+  li{margin:6px 0}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .badge{background:#efe7f8;color:var(--brand);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:600}
+  label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+  input,select{width:100%;padding:12px;border:1px solid #d9d4e4;border-radius:10px;font-size:16px}
+  .cta{display:block;width:100%;margin-top:16px;padding:16px;border:0;border-radius:12px;background:var(--ok);color:#fff;font-size:18px;font-weight:800;cursor:pointer}
+  .cta:active{transform:scale(.99)}
+  .note{font-size:12px;color:#6b6774;text-align:center;margin-top:10px}
+  footer{text-align:center;font-size:12px;color:#6b6774;padding:20px}
+</style>
+</head>
+<body>
+<div class="bar">🚚 Envío gratis a todo Chile · 💵 Pagas al recibir en tu casa</div>
+
+<div class="wrap">
+  <div class="card">
+    <img src="https://d39ru7awumhhs2.cloudfront.net/chile/products/49822/1738705588Captura%20de%20pantalla%202025-02-04%20135920.png" alt="Aspiradora antiácaros UV">
+    <h1>Aspiradora Antiácaros UV para colchón y sofá</h1>
+    <p class="sub">Aspira polvo y residuos del colchón y suma luz UV a tu limpieza. Ideal si tienes niños, mascotas o alguien sensible al polvo.</p>
+    <p class="price">$25.990</p>
+    <div class="badges">
+      <span class="badge">🚚 Envío gratis</span>
+      <span class="badge">💵 Pago al recibir</span>
+      <span class="badge">🛏️ Colchón · sofá · alfombra</span>
+    </div>
+    <ul>
+      <li>Ayuda a sacar polvo y ácaros que se acumulan en el colchón.</li>
+      <li>Luz UV como apoyo en la limpieza diaria.</li>
+      <li>Sirve para colchón, sofá, sillón y cojines.</li>
+      <li>Depósito fácil de vaciar y lavar.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:18px;margin:0 0 4px">Pide la tuya</h2>
+    <p class="sub">Completa tus datos y te contactamos por WhatsApp para confirmar. Pagas cuando la recibes.</p>
+    <form id="f">
+      <label for="n">Nombre</label>
+      <input id="n" required>
+      <label for="a">Apellido</label>
+      <input id="a" required>
+      <label for="d">Dirección (calle, número, depto)</label>
+      <input id="d" required>
+      <label for="r">Región</label>
+      <select id="r" required>
+        <option value="">Selecciona…</option>
+        <option>ARICA Y PARINACOTA</option><option>TARAPACÁ</option><option>ANTOFAGASTA</option>
+        <option>ATACAMA</option><option>COQUIMBO</option><option>VALPARAISO</option>
+        <option>METROPOLITANA DE SANTIAGO</option><option>LIBERTADOR GENERAL BERNARDO O'HIGGINS</option>
+        <option>MAULE</option><option>ÑUBLE</option><option>BIO - BIO</option><option>ARAUCANÍA</option>
+        <option>LOS RÍOS</option><option>LOS LAGOS</option><option>AYSEN</option>
+        <option>MAGALLANES Y LA ANTARTICA CHILENA</option>
+      </select>
+      <label for="c">Comuna / Ciudad</label>
+      <input id="c" required>
+      <label for="t">Teléfono</label>
+      <input id="t" type="tel" placeholder="+56 9 ..." required>
+      <button class="cta" type="submit">Pedir por WhatsApp</button>
+      <p class="note">Sin pago por adelantado · Solo usamos tus datos para coordinar el envío.</p>
+    </form>
+  </div>
+  <footer>Aspiradora antiácaros UV · Venta directa con pago al recibir · Chile 🇨🇱</footer>
+</div>
+
+<script>
+  var WA = "56931232000";
+  var PRECIO = "$25.990";
+  document.getElementById("f").addEventListener("submit", function(e){
+    e.preventDefault();
+    var g = function(id){ return document.getElementById(id).value.trim(); };
+    var msg = "¡Hola! Quiero pedir la Aspiradora Antiácaros UV (" + PRECIO + "), envío gratis y pago al recibir.\n\n"
+      + "Nombre: " + g("n") + " " + g("a") + "\n"
+      + "Dirección: " + g("d") + "\n"
+      + "Región: " + g("r") + "\n"
+      + "Comuna: " + g("c") + "\n"
+      + "Teléfono: " + g("t");
+    window.location.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg);
+  });
+</script>
+</body>
+</html>
